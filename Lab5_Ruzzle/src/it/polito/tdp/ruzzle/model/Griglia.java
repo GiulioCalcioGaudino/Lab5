@@ -1,4 +1,4 @@
-package Model;
+package it.polito.tdp.ruzzle.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;

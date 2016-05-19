@@ -1,4 +1,4 @@
-package Controller;
+package it.polito.tdp.ruzzle.controller;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;

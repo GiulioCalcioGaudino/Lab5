@@ -28,7 +28,7 @@
         </rowConstraints>
          <children>
             <Label fx:id="lbl2" contentDisplay="CENTER" style="-fx-background-color: green; -fx-label-padding: 10px;" text="C" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-            <Label fx:id="lbl0" alignment="CENTER" contentDisplay="CENTER" style="-fx-background-color: green; -fx-label-padding: 10px; -fx-pref-width: 20px;" text="A" GridPane.halignment="CENTER" />
+            <Label fx:id="lbl0" alignment="CENTER" contentDisplay="CENTER" style="-fx-background-color: green; -fx-label-padding: 10px;" text="A" GridPane.halignment="CENTER" />
             <Label fx:id="lbl1" contentDisplay="CENTER" style="-fx-background-color: green; -fx-label-padding: 10px;" text="B" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
             <Label fx:id="lbl3" alignment="CENTER" contentDisplay="CENTER" style="-fx-background-color: green; -fx-label-padding: 10px;" text="D" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
             <Label fx:id="lbl4" contentDisplay="CENTER" style="-fx-background-color: green; -fx-label-padding: 10px;" text="E" GridPane.halignment="CENTER" GridPane.rowIndex="1" />

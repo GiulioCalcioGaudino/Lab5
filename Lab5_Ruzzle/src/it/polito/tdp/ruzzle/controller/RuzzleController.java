@@ -1,12 +1,12 @@
-package Controller;
+package it.polito.tdp.ruzzle.controller;
 
 import java.net.URL;
 import java.util.*;
 import java.util.ResourceBundle;
 
-import Model.Griglia;
-import Model.Modello;
-import Model.Posizione;
+import it.polito.tdp.ruzzle.model.Griglia;
+import it.polito.tdp.ruzzle.model.Modello;
+import it.polito.tdp.ruzzle.model.Posizione;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -87,7 +87,7 @@ public class RuzzleController {
     	
     	for (int i=0; i<4; i++){
 			for(int j=0; j<4; j++){
-				Posizione p = new Posizione (i,j);
+				Posizione p = new Posizione (i+1,j+1);
 				labels.get(i*4+j).setText(""+g.get(p));	
 			}
 			}
