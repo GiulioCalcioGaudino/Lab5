@@ -2,6 +2,7 @@ package it.polito.tdp.ruzzle.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +11,7 @@ public class Griglia{
 	
 	private int N ;
 	
-	private Map<Posizione,Character> caselle ;
+	public Map<Posizione,Character> caselle ;
 	private List<Posizione> posizioni ;
 
 	/** 
@@ -19,7 +20,7 @@ public class Griglia{
 	 */
 	public Griglia () {
 		N = 4;
-		caselle = new HashMap<Posizione,Character>() ;
+		caselle = new LinkedHashMap<Posizione,Character>() ;
 		
 		// definisci le posizioni valide
 		posizioni = new ArrayList<Posizione>() ;

@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import it.polito.tdp.ruzzle.model.Griglia;
 import it.polito.tdp.ruzzle.model.Modello;
+import it.polito.tdp.ruzzle.model.Parola;
 import it.polito.tdp.ruzzle.model.Posizione;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -75,7 +76,7 @@ public class RuzzleController {
     private Button btnRandomRuzzle;
 
     @FXML
-    private ListView<?> listView;
+    private ListView<String> listView;
 
     @FXML
     private Label errorLbl;
@@ -91,10 +92,61 @@ public class RuzzleController {
 				labels.get(i*4+j).setText(""+g.get(p));	
 			}
 			}
-    }
+    	
+    	listView.getItems().clear();
+
+		try {			
+			// Risolvi Ruzzle
+			m.generaParole(g);
+			errorLbl.setText("Finito");
+
+		} catch (RuntimeException e) {
+			errorLbl.setText("Errore nella connessione al database");
+		}
+
+		// Ottieni la lista delle parole
+		List<Parola> soluzioni = m.ordinaParole();
+
+		for (Parola par : soluzioni) {
+			listView.getItems().add(par.getString());
+		}
+		for (Label l : labels)
+			l.setStyle("-fx-background-color: green; -fx-label-padding: 10px;"
+					+ "-fx-font-size: 18px; -fx-text-fill: white; -fx-background-radius: 10px");
+	}
+
+    
 
     @FXML
     void doShow(ActionEvent event) {
+
+    	int index = listView.getSelectionModel().getSelectedIndex();
+
+		if (index >= 0) {
+
+			Parola word = m.ordinaParole().get(index);
+			List<Posizione> posizioni = word.getPositions();
+
+			for (Label l : labels)
+				l.setStyle("-fx-background-color: green; -fx-label-padding: 10px;"
+						+ "-fx-font-size: 18px; -fx-text-fill: white; -fx-background-radius: 10px");
+
+			for (Posizione p : posizioni) {
+				labels.get((p.getRiga()-1) * 4 + (p.getCol()-1))
+				.setStyle("-fx-background-color: red; -fx-label-padding: 10px;"
+						+ "-fx-font-size: 18px; -fx-text-fill: white; -fx-background-radius: 10px");
+			}
+
+			errorLbl.setText("");
+
+		} else {
+			
+			if (listView.getItems().size() == 0) {
+				errorLbl.setText("Genera una nuova soluzione!");
+			} else {
+				errorLbl.setText("Seleziona una parola dalla lista!");
+			}
+		}
 
     }
 

@@ -4,6 +4,7 @@ public class Posizione {
 	
 	private int riga ;
 	private int col ;
+	private boolean usata = false;
 	
 	public Posizione(int riga, int col) {
 		this.riga = riga;
@@ -22,6 +23,12 @@ public class Posizione {
 		this.col = col;
 	}
 	
+	public boolean isUsata() {
+		return usata;
+	}
+	public void setUsata(boolean usata) {
+		this.usata = usata;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
